@@ -1,0 +1,112 @@
+/*.spinner {*/
+/*    width: 120px;*/
+/*    height: 120px;*/
+
+/*    position: relative;*/
+/*    margin: 100px auto;*/
+/*}*/
+
+/*.double-bounce1, .double-bounce2 {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    border-radius: 50%;*/
+/*    background-color: #333;*/
+/*    opacity: 0.6;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+
+/*    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;*/
+/*    animation: sk-bounce 2.0s infinite ease-in-out;*/
+/*}*/
+
+/*.double-bounce2 {*/
+/*    -webkit-animation-delay: -1.0s;*/
+/*    animation-delay: -1.0s;*/
+/*}*/
+
+/*@-webkit-keyframes sk-bounce {*/
+/*    0%, 100% { -webkit-transform: scale(0.0) }*/
+/*    50% { -webkit-transform: scale(1.0) }*/
+/*}*/
+
+/*@keyframes sk-bounce {*/
+/*    0%, 100% {*/
+/*        transform: scale(0.0);*/
+/*        -webkit-transform: scale(0.0);*/
+/*    } 50% {*/
+/*          transform: scale(1.0);*/
+/*          -webkit-transform: scale(1.0);*/
+/*      }*/
+/*}*/
+
+.circle_btn svg {
+    height: 4em;
+    width: 4em;
+    z-index: 1;
+}
+
+.circle_btn {
+    position: relative;
+    display: inline-block;
+    padding: 1.8em 2em;
+    text-decoration: none;
+    color: #FFF;
+    background: #fd9535;/*button color*/
+    border-bottom: solid 2px #d27d00;/*daker color*/
+    border-radius: 4em;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.circle_btn:active {
+    border-bottom: solid 2px #fd9535;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+
+
+
+
+/**
+Spinner loading animation
+ */
+.loader {
+    width: 9.1em;
+    height: 9.1em;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite
+}
+.loader::before , .loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 8px solid #ffdd00;
+    animation: prixClipFix 2s linear infinite ;
+}
+.loader::after{
+    transform: rotate3d(90, 90, 0, 180deg );
+    border-color: #ff8800;
+}
+
+@keyframes rotate {
+    0%   {transform: rotate(0deg)}
+    100%   {transform: rotate(360deg)}
+}
+
+@keyframes prixClipFix {
+    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+    75%, 100%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+}
+
+.section {
+    position: absolute;
+    display: flex;
+    color: #ccc;
+    transition: 3s linear;
+}
