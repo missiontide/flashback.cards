@@ -29,6 +29,16 @@ Centering Components
 }
 
 /**
+Branding & Instructions
+ */
+.openInstructions {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+/**
 Card spacing & captions
  */
 .caption {
@@ -91,9 +101,9 @@ Flare words
 }
 
 /**
-Instruction and animated arrow
+Start instruction and animated arrow
  */
-.instruction {
+.startInstruction {
     position: absolute;
     top: 48%;
     left: 50%;

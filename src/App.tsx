@@ -3,6 +3,7 @@ import sparks from './sparks'
 import timePeriods from "./timePeriods";
 import FlashbackButton from "./components/FlashbackButton";
 import FlashbackCard from "./components/FlashbackCard";
+import InstructionsModal from "./components/InstructionsModal";
 import { RiArrowDropRightLine } from 'react-icons/ri'
 import './App.css';
 
@@ -12,6 +13,7 @@ function App() {
     const [loading, setLoading] = useState(false)
     const [flashed, setFlashed] = useState(false)
     const [gameStarted, setGameStarted] = useState(false)
+    const [showInstructions, setShowInstructions] = useState(false)
 
     /**
      * Sets the spark and time period to new random values
@@ -76,10 +78,22 @@ function App() {
     }
 
     return (<>
+        {/* Instructions */}
+        <InstructionsModal
+            show={showInstructions}
+            onHide={() => setShowInstructions(false)}
+        />
+        <div className="openInstructions" onClick={() => {setShowInstructions(true)}}>
+            <u>Instructions</u>
+        </div>
+
+        {/* Animations */}
         <div className={"flareFlash " + (flashed ? "visible": "long-invisible")}><b>FLASH</b></div>
         <div className={"flareBack " + (flashed ? "visible": "long-invisible")}><b>BACK</b></div>
         <div className={"flashAnimation " + (flashed ? "visible" : "invisible")}></div>
-        {!gameStarted && <div className="instruction">Press and hold <RiArrowDropRightLine className="arrow"/></div>}
+
+        {/* App */}
+        {!gameStarted && <div className="startInstruction">Press and hold <RiArrowDropRightLine className="arrow"/></div>}
         <div className="App no-select">
             <div className="components">
                 <div className="spark">
