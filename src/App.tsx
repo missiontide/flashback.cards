@@ -73,8 +73,8 @@ function App() {
     }
 
     return (<>
-        <div className={"lightningFlash " + (flashed ? "visible": "invisible")}><b>FLASH</b></div>
-        <div className={"lightningBack " + (flashed ? "visible": "invisible")}><b>BACK</b></div>
+        <div className={"flareFlash " + (flashed ? "visible": "long-invisible")}><b>FLASH</b></div>
+        <div className={"flareBack " + (flashed ? "visible": "long-invisible")}><b>BACK</b></div>
         <div className={"flashAnimation " + (flashed ? "visible" : "invisible")}></div>
         <div className="App no-select">
             <div className="components">

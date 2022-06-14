@@ -58,10 +58,10 @@
 .long-invisible {
     visibility: hidden;
     opacity: 0;
-    transition: opacity 3s, visibility 3s;
+    transition: opacity 1.5s, visibility 1.5s;
 }
 
-.lightningFlash {
+.flareFlash {
     position: absolute;
     top: 46%;
     left: 50%;
@@ -71,7 +71,7 @@
     color: #dfce01;
     z-index: 1;
 }
-.lightningBack {
+.flareBack {
     position: absolute;
     top: 46%;
     right: 50%;
