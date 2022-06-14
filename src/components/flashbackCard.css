@@ -1,0 +1,11 @@
+.card {
+    height: 175px;
+    width: 300px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.card p {
+    font-size: 36px;
+    line-height: 1;
+}

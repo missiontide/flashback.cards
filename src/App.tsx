@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import sparks from './sparks'
 import timePeriods from "./timePeriods";
 import FlashbackButton from "./components/FlashbackButton";
+import FlashbackCard from "./components/FlashbackCard";
 import './App.css';
 
 function App() {
@@ -77,10 +78,10 @@ function App() {
         <div className="App no-select">
             <div className="components">
                 <div className="spark">
-                    <span>Tell me the <b><i>first memory</i></b> that comes to mind related to</span>
-                    <div>
-                        {spark}
-                    </div>
+                    <span className="caption">
+                        Tell me the <b><i>first memory</i></b> that comes to mind related to
+                    </span>
+                    <FlashbackCard text={spark}/>
                 </div>
                 <div className="flashbackButton">
                     <FlashbackButton
@@ -89,10 +90,10 @@ function App() {
                     />
                 </div>
                 <div className="timePeriod">
-                    <span>Around the time of</span>
-                    <div>
-                        {timePeriod}
-                    </div>
+                    <span className="caption">
+                        Around the time of
+                    </span>
+                    <FlashbackCard text={timePeriod}/>
                 </div>
             </div>
         </div>

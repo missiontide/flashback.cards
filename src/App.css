@@ -31,11 +31,20 @@
     transform: translate(-50%, -50%);
 }
 
+.spark {
+    margin-bottom: 40px;
+}
+
+.timePeriod {
+    margin-top: 40px;
+}
+
 .flashAnimation {
     position: absolute;
     height: 100%;
     width: 100%;
     background-color: white;
+    z-index: 1;
 }
 .visible {
     visibility: visible;
