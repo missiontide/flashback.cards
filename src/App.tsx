@@ -5,7 +5,10 @@ import FlashbackButton from "./components/FlashbackButton";
 import FlashbackCard from "./components/FlashbackCard";
 import InstructionsModal from "./components/InstructionsModal";
 import { RiArrowDropRightLine } from 'react-icons/ri'
+import logo from "./logo.png"
 import './App.css';
+import "@fontsource/cooper-hewitt/all.css"
+
 
 function App() {
     const [spark, setSpark] = useState("Sparks")
@@ -78,6 +81,9 @@ function App() {
     }
 
     return (<>
+        {/* Branding */}
+        <img src={logo} className="App-logo" alt="logo" />
+
         {/* Instructions */}
         <InstructionsModal
             show={showInstructions}
@@ -88,17 +94,19 @@ function App() {
         </div>
 
         {/* Animations */}
-        <div className={"flareFlash " + (flashed ? "visible": "long-invisible")}><b>FLASH</b></div>
-        <div className={"flareBack " + (flashed ? "visible": "long-invisible")}><b>BACK</b></div>
+        <div className={"flareFlash flareText " + (flashed ? "visible": "long-invisible")}>FLASH</div>
+        <div className={"flareBack flareText " + (flashed ? "visible": "long-invisible")}>BACK</div>
         <div className={"flashAnimation " + (flashed ? "visible" : "invisible")}></div>
 
         {/* App */}
-        {!gameStarted && <div className="startInstruction">Press and hold <RiArrowDropRightLine className="arrow"/></div>}
+        {!gameStarted && <div className="startInstruction">
+            <span>Press and hold</span><RiArrowDropRightLine className="arrow"/>
+        </div>}
         <div className="App no-select">
             <div className="components">
                 <div className="spark">
                     <div className="caption">
-                        {gameStarted ? <>Tell me the <b><i>first memory</i></b> that comes to mind related to</> : ""}
+                        {gameStarted ? <>Tell me the <span className="emphasis">first memory</span> that comes to mind related to</> : ""}
                     </div>
                     <FlashbackCard text={spark}/>
                 </div>

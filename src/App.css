@@ -31,18 +31,29 @@ Centering Components
 /**
 Branding & Instructions
  */
+.App-logo {
+    position: absolute;
+    left: 25px;
+    top:15px;
+}
 .openInstructions {
     position: absolute;
-    top: 5px;
-    right: 15px;
+    top: 15px;
+    right: 25px;
     cursor: pointer;
+    font-family: "Cooper Hewitt", sans-serif;
+}
+.emphasis {
+    font-weight: 600;
 }
 
 /**
 Card spacing & captions
  */
 .caption {
-    height: 21px;
+    height: 25px;
+    font-family: "Cooper Hewitt", sans-serif;
+    font-style: normal;
 }
 .spark {
     margin-bottom: 40px;
@@ -79,14 +90,19 @@ Flare words
     opacity: 0;
     transition: opacity 1.5s, visibility 1.5s;
 }
+.flareText {
+    font-size: 50px;
+    font-family: "Cooper Hewitt", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #dfce01;
+}
 .flareFlash {
     position: absolute;
     top: 46%;
     left: 50%;
     -ms-transform: translate(-150%);
     transform: translate(-150%);
-    font-size: 50px;
-    color: #dfce01;
     z-index: 1;
 }
 .flareBack {
@@ -95,8 +111,6 @@ Flare words
     right: 50%;
     -ms-transform: translate(160%);
     transform: translate(160%);
-    font-size: 50px;
-    color: #dfce01;
     z-index: 1;
 }
 
@@ -110,6 +124,11 @@ Start instruction and animated arrow
     -ms-transform: translate(-175%);
     transform: translate(-175%);
     z-index: 1;
+    display: table-cell;
+    font-family: "Cooper Hewitt", sans-serif;
+}
+.startInstruction span {
+    vertical-align: middle;
 }
 .arrow {
     animation: slide1 1s ease-in-out infinite;
