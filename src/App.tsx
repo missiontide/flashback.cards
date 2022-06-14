@@ -6,8 +6,8 @@ import FlashbackCard from "./components/FlashbackCard";
 import './App.css';
 
 function App() {
-    const [spark, setSpark] = useState("Spark")
-    const [timePeriod, setTimePeriod] = useState("Time Period")
+    const [spark, setSpark] = useState("Sparks")
+    const [timePeriod, setTimePeriod] = useState("Time Periods")
     const [loading, setLoading] = useState(false)
     const [flashed, setFlashed] = useState(false)
 
@@ -72,8 +72,9 @@ function App() {
         document.removeEventListener("mouseup", handleMouseUp)
     }
 
-    return (
-        <>
+    return (<>
+        <div className={"lightningFlash " + (flashed ? "visible": "invisible")}><b>FLASH</b></div>
+        <div className={"lightningBack " + (flashed ? "visible": "invisible")}><b>BACK</b></div>
         <div className={"flashAnimation " + (flashed ? "visible" : "invisible")}></div>
         <div className="App no-select">
             <div className="components">
@@ -97,9 +98,7 @@ function App() {
                 </div>
             </div>
         </div>
-
-        </>
-    );
+    </>);
 }
 
 export default App;

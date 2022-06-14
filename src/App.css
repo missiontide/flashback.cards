@@ -55,3 +55,29 @@
     opacity: 0;
     transition: opacity 1s, visibility 1s;
 }
+.long-invisible {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 3s, visibility 3s;
+}
+
+.lightningFlash {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    -ms-transform: translate(-150%);
+    transform: translate(-150%);
+    font-size: 50px;
+    color: #dfce01;
+    z-index: 1;
+}
+.lightningBack {
+    position: absolute;
+    top: 46%;
+    right: 50%;
+    -ms-transform: translate(160%);
+    transform: translate(160%);
+    font-size: 50px;
+    color: #dfce01;
+    z-index: 1;
+}
