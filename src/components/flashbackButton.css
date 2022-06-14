@@ -27,6 +27,23 @@ Lightning Button
 }
 
 /**
+Container for loading spinner
+ */
+.section {
+    position: absolute;
+    display: flex;
+    color: #ccc;
+    transition: 3s linear;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/**
 Spinner loading animation
  */
 .loader {
@@ -59,14 +76,4 @@ Spinner loading animation
     0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
     50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
     75%, 100%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
-}
-
-/**
-Container for loading spinner
- */
-.section {
-    position: absolute;
-    display: flex;
-    color: #ccc;
-    transition: 3s linear;
 }

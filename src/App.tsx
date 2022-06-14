@@ -3,6 +3,7 @@ import sparks from './sparks'
 import timePeriods from "./timePeriods";
 import FlashbackButton from "./components/FlashbackButton";
 import FlashbackCard from "./components/FlashbackCard";
+import { RiArrowDropRightLine } from 'react-icons/ri'
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     const [timePeriod, setTimePeriod] = useState("Time Periods")
     const [loading, setLoading] = useState(false)
     const [flashed, setFlashed] = useState(false)
+    const [gameStarted, setGameStarted] = useState(false)
 
     /**
      * Sets the spark and time period to new random values
@@ -58,6 +60,7 @@ function App() {
 
     function triggerFlashback() : void {
         setLoading(false)
+        setGameStarted(true)
         setFlashed(true)
         setTimeout(() => {
             setFlashed(false);
@@ -76,12 +79,13 @@ function App() {
         <div className={"flareFlash " + (flashed ? "visible": "long-invisible")}><b>FLASH</b></div>
         <div className={"flareBack " + (flashed ? "visible": "long-invisible")}><b>BACK</b></div>
         <div className={"flashAnimation " + (flashed ? "visible" : "invisible")}></div>
+        {!gameStarted && <div className="instruction">Press and hold <RiArrowDropRightLine className="arrow"/></div>}
         <div className="App no-select">
             <div className="components">
                 <div className="spark">
-                    <span className="caption">
-                        Tell me the <b><i>first memory</i></b> that comes to mind related to
-                    </span>
+                    <div className="caption">
+                        {gameStarted ? <>Tell me the <b><i>first memory</i></b> that comes to mind related to</> : ""}
+                    </div>
                     <FlashbackCard text={spark}/>
                 </div>
                 <div className="flashbackButton">
@@ -91,9 +95,9 @@ function App() {
                     />
                 </div>
                 <div className="timePeriod">
-                    <span className="caption">
-                        Around the time of
-                    </span>
+                    <div className="caption">
+                        {gameStarted ? <>Around the time of</> : ""}
+                    </div>
                     <FlashbackCard text={timePeriod}/>
                 </div>
             </div>

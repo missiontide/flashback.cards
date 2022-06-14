@@ -1,13 +1,18 @@
+/**
+Centering Components
+ */
 .App {
     display: table;
     height: 100%;
     width: 100%;
     text-align: center;
 }
+
 .components {
     display: table-cell;
     vertical-align: middle;
 }
+
 .components div {
     margin-left: auto;
     margin-right: auto;
@@ -23,22 +28,22 @@
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
-.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+/**
+Card spacing & captions
+ */
+.caption {
+    height: 21px;
 }
-
 .spark {
     margin-bottom: 40px;
 }
-
 .timePeriod {
     margin-top: 40px;
 }
 
+/**
+Flash animation
+ */
 .flashAnimation {
     position: absolute;
     height: 100%;
@@ -55,12 +60,15 @@
     opacity: 0;
     transition: opacity 1s, visibility 1s;
 }
+
+/**
+Flare words
+ */
 .long-invisible {
     visibility: hidden;
     opacity: 0;
     transition: opacity 1.5s, visibility 1.5s;
 }
-
 .flareFlash {
     position: absolute;
     top: 46%;
@@ -81,3 +89,29 @@
     color: #dfce01;
     z-index: 1;
 }
+
+/**
+Instruction and animated arrow
+ */
+.instruction {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    -ms-transform: translate(-175%);
+    transform: translate(-175%);
+    z-index: 1;
+}
+.arrow {
+    animation: slide1 1s ease-in-out infinite;
+}
+@keyframes slide1 {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(10px, 0);
+    }
+}
+
