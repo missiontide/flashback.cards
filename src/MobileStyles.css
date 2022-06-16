@@ -1,13 +1,14 @@
 @media only screen and (max-device-width: 480px) {
+    /* prevents vertical scrollbar from being seen */
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+
     /* Logo resizing */
     .logoDiv {
         width:175px;
         top: 5px;
         left: 3px;
-    }
-
-    .startInstruction {
-        font-size: 14px;
     }
 
     /* Card adjustments */
@@ -16,7 +17,10 @@
     .timePeriod {margin-top: 15px;}
     .spark .caption { font-size: 15px; }
 
-    /* Instructions link adjustments */
+    /* Instructions adjustments */
+    .startInstruction {
+        font-size: 14px;
+    }
     .openInstructions.center-right {
         -ms-transform: translate(95%);
         transform: translate(95%);
