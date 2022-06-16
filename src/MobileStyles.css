@@ -3,7 +3,7 @@
     ::-webkit-scrollbar {
         -webkit-appearance: none;
         display: none;
-        /*width: 0;*/
+        width: 0;
     }
 
     /* Logo resizing */
