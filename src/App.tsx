@@ -138,7 +138,7 @@ function App() {
 
     useEffect(() => {
         Fathom.load("NSXNIXII", {
-            includedDomains: ['flashback.cards'],
+            includedDomains: ['www.flashback.cards'],
         })
         Fathom.trackPageview();
     }, [])
