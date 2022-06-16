@@ -1,14 +1,17 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import sparks from './sparks'
 import timePeriods from "./timePeriods";
 import FlashbackButton from "./components/FlashbackButton";
 import FlashbackCard from "./components/FlashbackCard";
 import InstructionsModal from "./components/InstructionsModal";
 import { RiArrowDropRightLine } from 'react-icons/ri'
+
 import logo from "./logo.png"
 import './App.css';
 import './MobileStyles.css'
 import "@fontsource/cooper-hewitt/all.css"
+
+import * as Fathom from 'fathom-client';
 
 
 function App() {
@@ -131,6 +134,13 @@ function App() {
     function handleTouchEnd() : void {
         releaseButton();
     }
+
+    useEffect(() => {
+        Fathom.load("NSXNIXII", {
+            includedDomains: ['flashback.cards'],
+        })
+        Fathom.trackPageview();
+    }, [])
 
     return (<>
         {/* Branding */}
