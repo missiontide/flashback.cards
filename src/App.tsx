@@ -7,6 +7,7 @@ import InstructionsModal from "./components/InstructionsModal";
 import { RiArrowDropRightLine } from 'react-icons/ri'
 import logo from "./logo.png"
 import './App.css';
+import './MobileStyles.css'
 import "@fontsource/cooper-hewitt/all.css"
 
 
@@ -86,15 +87,20 @@ function App() {
         }
     }
 
+    // Used to prevent mouse emulation events triggering from touch events
+    const [usingTouch, setUsingTouch] = useState(false)
+
     /**
      * Mouse functionality for the flashback button
      */
     function handleMouseDown() : void {
+        if (usingTouch) return;
         beginHoldingButton();
         document.addEventListener("mouseup", handleMouseUp)
     }
 
     function handleMouseUp() : void {
+        if (usingTouch) return;
         releaseButton();
         document.removeEventListener("mouseup", handleMouseUp)
     }
@@ -103,6 +109,7 @@ function App() {
      * Touch functionality for the flashback button
      */
     function handleTouchStart() : void {
+        setUsingTouch(true)
         beginHoldingButton();
     }
 
@@ -125,16 +132,13 @@ function App() {
         releaseButton();
     }
 
-    // Prevents mouse emulation events triggering from touch events
-    useEffect(() => {
-        document.addEventListener('touchend', e => {if (e.cancelable) e.preventDefault()})
-    }, [])
-
     return (<>
         {/* Branding */}
-        <a href="/">
-            <img src={logo} className="App-logo" alt="logo" />
-        </a>
+        <div className="logoDiv">
+            <a href="/">
+                <img src={logo} className="App-logo" alt="logo" />
+            </a>
+        </div>
 
         {/* Instructions */}
         <InstructionsModal

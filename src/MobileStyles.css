@@ -1,0 +1,10 @@
+@media only screen and (max-device-width: 480px) {
+    /* Logo resizing */
+    .logoDiv {
+        width:175px;
+        top: 5px;
+        left: 3px;
+    }
+
+    
+}

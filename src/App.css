@@ -32,9 +32,13 @@ Centering Components
 Branding & Instructions
  */
 .App-logo {
+    height: 100%;
+    width: 100%;
+}
+.logoDiv {
     position: absolute;
+    top: 15px;
     left: 25px;
-    top:15px;
 }
 .openInstructions {
     position: absolute;
