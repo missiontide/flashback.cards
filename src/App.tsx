@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import sparks from './sparks'
 import timePeriods from "./timePeriods";
 import FlashbackButton from "./components/FlashbackButton";
@@ -14,6 +14,7 @@ function App() {
     const [spark, setSpark] = useState("Sparks")
     const [timePeriod, setTimePeriod] = useState("Time Periods")
     const [loading, setLoading] = useState(false)
+    const timerRef = useRef<NodeJS.Timeout | null>(null)
     const [flashed, setFlashed] = useState(false)
     const [gameStarted, setGameStarted] = useState(false)
     const [showInstructions, setShowInstructions] = useState(false)
@@ -21,13 +22,13 @@ function App() {
     /**
      * Sets the spark and time period to new random values
      */
-    function newFlashBack() : void {
+    function newFlashback() : void {
         let newSpark : string = getRandomSpark();
         let newTimePeriod : string = getRandomTimePeriod();
 
         if (newSpark === spark || newTimePeriod === timePeriod) {
             // retry until these are new values
-            newFlashBack();
+            newFlashback();
         } else {
             setSpark(newSpark);
             setTimePeriod(newTimePeriod)
@@ -53,16 +54,18 @@ function App() {
     }
 
     /**
-     * If button is held for 1.5s, trigger a new flashback
+     * Begins build-up animation and triggers flashback if uninterrupted for 1.5 seconds.
      */
-    function handleMouseDown() : void {
+    function beginHoldingButton() : void {
         setLoading(true);
-        let timer = setTimeout(() => {
+        timerRef.current = setTimeout(() => {
             triggerFlashback();
         }, 1500)
-        document.addEventListener("mouseup", () => (handleMouseUp(timer)))
     }
 
+    /**
+     * Trigger flashback animation and set new prompts
+     */
     function triggerFlashback() : void {
         setLoading(false)
         setGameStarted(true)
@@ -70,15 +73,62 @@ function App() {
         setTimeout(() => {
             setFlashed(false);
         }, 10)
-        newFlashBack();
+        newFlashback();
     }
 
-    // function handleMouseUp
-    function handleMouseUp(timer : any) : void {
+    /**
+     * Stop loading animation and interrupt timer
+     */
+    function releaseButton() : void {
         setLoading(false);
-        clearTimeout(timer)
+        if (timerRef.current !== null) {
+            clearTimeout(timerRef.current)
+        }
+    }
+
+    /**
+     * Mouse functionality for the flashback button
+     */
+    function handleMouseDown() : void {
+        beginHoldingButton();
+        document.addEventListener("mouseup", handleMouseUp)
+    }
+
+    function handleMouseUp() : void {
+        releaseButton();
         document.removeEventListener("mouseup", handleMouseUp)
     }
+
+    /**
+     * Touch functionality for the flashback button
+     */
+    function handleTouchStart() : void {
+        beginHoldingButton();
+    }
+
+    function handleTouchMove(e: any) : void {
+        if (e.touches.length === 1) {
+            let touch = e.touches[0];
+            let target = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (target === null) return;
+
+            // releases button if touch has moved off of the button
+            if ("loader" !== target.getAttribute('class')) {
+                releaseButton()
+            }
+        } else {
+            return;
+        }
+    }
+
+    function handleTouchEnd() : void {
+        releaseButton();
+    }
+
+    // Prevents mouse emulation events triggering from touch events
+    useEffect(() => {
+        document.addEventListener('touchend', e => {if (e.cancelable) e.preventDefault()})
+    }, [])
 
     return (<>
         {/* Branding */}
@@ -115,6 +165,9 @@ function App() {
                 <div className="flashbackButton">
                     <FlashbackButton
                         onMouseDown={handleMouseDown}
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={handleTouchMove}
+                        onTouchEnd={handleTouchEnd}
                         loading={loading}
                     />
                 </div>

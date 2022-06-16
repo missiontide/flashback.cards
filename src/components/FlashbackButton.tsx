@@ -4,6 +4,9 @@ import './flashbackButton.css'
 
 type FlashbackButtonProps = {
     onMouseDown: Function;
+    onTouchStart: Function;
+    onTouchMove: Function;
+    onTouchEnd: Function;
     loading: boolean;
 }
 
@@ -13,6 +16,9 @@ export default function FlashbackButton(props: FlashbackButtonProps) {
             <div
                 className="circle_btn"
                 onMouseDown={() => props.onMouseDown()}
+                onTouchStart={() => props.onTouchStart()}
+                onTouchMove={(e) => props.onTouchMove(e)}
+                onTouchEnd={() => props.onTouchEnd()}
             >
                 <BsFillLightningChargeFill/>
             </div>
