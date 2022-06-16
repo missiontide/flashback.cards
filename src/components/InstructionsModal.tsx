@@ -15,6 +15,9 @@ export default function InstructionsModal(props: ModalProps) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
+                <p className="signature">
+                    made by <a href="https://www.missiontide.com" target="_blank" rel="noreferrer">@missiontide</a>
+                </p>
                 <ol>
                     <li>
                         Get together with friends or family.

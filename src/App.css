@@ -40,6 +40,13 @@ Branding & Instructions
     top: 15px;
     left: 25px;
 }
+.signature {
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+    font-size: 15px;
+}
+.signature a { color: black}
 .openInstructions {
     position: absolute;
     cursor: pointer;
