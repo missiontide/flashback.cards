@@ -78,6 +78,7 @@ function App() {
             setFlashed(false);
         }, 10)
         newFlashback();
+        Fathom.trackGoal("XR9CWQUK", 0)
     }
 
     /**
