@@ -42,10 +42,18 @@ Branding & Instructions
 }
 .openInstructions {
     position: absolute;
-    top: 15px;
-    right: 25px;
     cursor: pointer;
     font-family: "Cooper Hewitt", sans-serif;
+}
+.openInstructions.top-right {
+    top: 15px;
+    right: 25px;
+}
+.openInstructions.center-right {
+    top: 48%;
+    left: 50%;
+    -ms-transform: translate(110%);
+    transform: translate(110%);
 }
 .emphasis {
     font-weight: 600;

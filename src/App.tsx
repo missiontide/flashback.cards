@@ -145,7 +145,9 @@ function App() {
             show={showInstructions}
             onHide={() => setShowInstructions(false)}
         />
-        <div className="openInstructions" onClick={() => {setShowInstructions(true)}}>
+        <div className={"openInstructions " + (!gameStarted ? "center-right" : " top-right")}
+             onClick={() => {setShowInstructions(true)}}
+        >
             <u>Instructions</u>
         </div>
 

@@ -6,5 +6,30 @@
         left: 3px;
     }
 
-    
+    .startInstruction {
+        font-size: 14px;
+    }
+
+    /* Card adjustments */
+    .card { height: 160px; }
+    .spark { margin-bottom: 15px; }
+    .timePeriod {margin-top: 15px;}
+    .spark .caption { font-size: 15px; }
+
+    /* Instructions link adjustments */
+    .openInstructions.center-right {
+        -ms-transform: translate(95%);
+        transform: translate(95%);
+    }
+
+    /* flare animation adjustments*/
+    .flareText { font-size: 30px; }
+    .flareFlash {
+        -ms-transform: translate(-185%);
+        transform: translate(-185%);
+    }
+    .flareBack {
+        -ms-transform: translate(205%);
+        transform: translate(205%);
+    }
 }
