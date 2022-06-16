@@ -2,6 +2,8 @@
     /* prevents vertical scrollbar from being seen */
     ::-webkit-scrollbar {
         -webkit-appearance: none;
+        display: none;
+        /*width: 0;*/
     }
 
     /* Logo resizing */
