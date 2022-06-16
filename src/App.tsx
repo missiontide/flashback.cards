@@ -140,7 +140,6 @@ function App() {
         Fathom.load("NSXNIXII", {
             includedDomains: ['www.flashback.cards'],
         })
-        Fathom.trackPageview();
     }, [])
 
     return (<>
