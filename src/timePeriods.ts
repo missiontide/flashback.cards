@@ -1,7 +1,7 @@
 /** List of time periods **/
 const timePeriods : string[] = [
     "Childhood",
-    "Lower School",
+    "Elementary School",
     "Middle School",
     "High School",
     "College",
