@@ -4,7 +4,7 @@ Lightning Button
 .circle_btn svg {
     height: 4em;
     width: 4em;
-    z-index: 2;
+    z-index: 3;
 }
 
 .circle_btn {

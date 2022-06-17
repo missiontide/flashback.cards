@@ -76,7 +76,7 @@ function App() {
         setFlashed(true)
         setTimeout(() => {
             setFlashed(false);
-        }, 10)
+        }, 50)
         newFlashback();
         Fathom.trackGoal("XR9CWQUK", 0)
     }
@@ -136,6 +136,9 @@ function App() {
         releaseButton();
     }
 
+    /**
+     * Load Fathom for analytics
+     */
     useEffect(() => {
         Fathom.load("NSXNIXII", {
             includedDomains: ['www.flashback.cards'],

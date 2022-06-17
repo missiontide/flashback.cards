@@ -89,7 +89,7 @@ Flash animation
     height: 100%;
     width: 100%;
     background-color: white;
-    z-index: 1;
+    z-index: 2;
 }
 .visible {
     visibility: visible;
@@ -122,7 +122,7 @@ Flare words
     left: 50%;
     -ms-transform: translate(-150%);
     transform: translate(-150%);
-    z-index: 1;
+    z-index: 2;
 }
 .flareBack {
     position: absolute;
@@ -130,7 +130,7 @@ Flare words
     right: 50%;
     -ms-transform: translate(160%);
     transform: translate(160%);
-    z-index: 1;
+    z-index: 2;
 }
 
 /**
@@ -142,7 +142,6 @@ Start instruction and animated arrow
     left: 50%;
     -ms-transform: translate(-175%);
     transform: translate(-175%);
-    z-index: 1;
     display: table-cell;
     font-family: "Cooper Hewitt", sans-serif;
 }
