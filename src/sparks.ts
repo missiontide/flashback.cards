@@ -17,6 +17,7 @@ const sparks : string[] = [
     "Your Room",
     "Home",
     "Hiding Place",
+    "Another Country",
 
     // Food
     "Perfect Meal",
